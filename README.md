@@ -88,3 +88,4 @@ Comparison of models
 Result
 -----------------------------------------------------
 
+![image](result image.png)
