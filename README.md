@@ -88,4 +88,30 @@ Comparison of models
 Result
 -----------------------------------------------------
 
-! [image](result image.PNG)
+![result image](https://github.com/agusHendra67/Bike-Sharing-Demand-Prediction/assets/61777139/e17ab131-0953-41ba-a2af-18d87bc04467)
+
+### Conclusion 
+
+Dari hasil pemodelan di atas, ada beberapa kesimpulan yang bisa kita ambil :
+
+1. Model terbaik yang didapatkan yaitu LightGBM atau LGBM yang dimana setelah dituning memiliki nilai error yang paling rendah dari model lainnya. Ada empat metrik yang digunakan model yaitu RMSE, MAE, sMAPE dan RMSLE. Jika ditinjau dari nilai sMAPE yang dihasilkan oleh model setelah dilakukan hyperparameter tuning, yaitu ~16%, kita dapat menyimpulkan bahwa bila nanti model yang kita buat ini digunakan untuk memperkirakan jumlah pengguna sepeda di Washington D.C oleh Capital Bikeshare pada rentang nilai seperti yang dilatih terhadap model (antara 0-970 orang), maka perkiraan jumlah rata-rata akan meleset kurang lebih sebesar 16% dari jumlah users seharusnya. Tetapi tidak menutup kemungkinan juga prediksi nya meleset lebih jauh. Selain itu model ini juga memiliki limitasi ketika memprediksi jumlah pengguna yang mendekati 0 (dan memang dari awal saat melakukan pemodelan jumlah registered users yang bernilai 0, tidak disertakan atau di drop). Sedangkan jika ditinjau dari RMSLE, nilai error nya cukup rendah, yang dimana artinya relative error nya cukup rendah baik pada rentang jumlah user yang besar atau kecil. Dan juga bisa dibilang nilai prediksi yang lebih rendah dari nilai aktual nya (underestimation) dapat dihandel dengan cukup baik oleh model ini karena RMSLE sensitif dengan nilai prediksi yang underestimated, karena dari segi model bisnis penyewaan seperti penyewaan sepeda ini jika jumlah users yang kita prediksi ternyata jauh lebih sedikit dari nilai aktualnya, akan mengurangi profit yang signifikan, jadi kasus underestimation lebih diperhatikan.
+
+2. Berdasarkan pemodelan yang sudah dilakukan, fitur 'hr', 'hum', 'vapour_pressure' dan 'week_of_year' menjadi fitur yang paling berpengaruh terhadap 'registered' dan 'casual' yang artinya paling berpengaruh juga terhadap target 'cnt'.
+
+3. Dari error analysis yang dilakukan, terdapa kondisi pada beberapa fitur yang membuat model ini memiliki nilai prediksi dengan error yang tinggi. Seperti contoh model cenderung memprediksi nilai jumlah pengguna jauh lebih rendah (underestimated) dari nilai aktualnya saat nilai humidity nya berada pada range 0.82-0.83. Dari segi fitu 'hr', model ini cenderung memprediksi nilai jumlah pengguna jauh lebih tinggi (overestimated) dari nilai aktualnya saat nilai hour (hr) berada pada nilai 15 dan 18. Dan juga model cenderung menghasilkan overestimated value dan underestimated value yang tinggi di nilai season 1 (winter) dan nilai weathersit 2 (Mist + Cloudy, Mist + Broken clouds)
+
+### Recoomendation
+
+Lalu, hal-hal yang dapat dilakukan untuk mengembangkan model agar lebih baik lagi, seperti:
+
+1. Saat mengecek prediksi mana saja yang memiliki nilai error yang tinggi, disarankan setelah itu kita bisa mengecek hubungan antara error tersebut dengan tiap variabel independen dengan detail per fitur (bisa juga dilakukan terhadap fitur baru yang dibuat). Pada akhirnya kita dapat mengetahui sebenarnya variabel mana saja dan aspek apa yang menyebabkan model menghasilkan error yang tinggi dengan lebih mendalam, sehingga kita bisa melakukan training ulang dengan penerapan feature engineering lainnya.
+<br><br>   
+2. Jika memungkinkan, penambahan fitur yang lebih korelatif dengan target ('cnt'), seperti data lokasi longitude, latitude, keadaan tanah, jumlah taman dll yang berhubungan dengan data lokasi/tempat. Selain itu, adanya penambahan data terkini dari Capital Bikeshare tentu akan dapat mengimprovisasi kapasitas prediksi dari model.
+<br><br>   
+3. Jika ada penambahan banyak data, dapat dicoba dengan menggunakan model yang lebih kompleks, seperti recursive neural networks (RNN). Namun, kalau jumlah data dan fiturnya masih seperti dataset ini, kemungkinan besar tidak akan mengubah hasilnya secara signifikan.
+<br><br>   
+4. Model yang sudah dibangun ini bisa dimanfaatkan untuk pengembangan pembuatan model lainnya. Contohnya seperti pembuatan model untuk memprediksi update jumlah pengguna sepeda untuk setiap kios/outlet yang memiliki review berupa data teks. Pembuatan model dengan tujuan seperti ini dapat memanfaatkan data asli rilisan dari Capital Bikeshare yang mungkin memiliki kolom 'review' dari customer. Jika memang ada, kita dapat melakukan sentiment analysis untuk mendapatkan insight dari review customer tersebut. 
+
+    Dalam prosesnya, tiap review dapat di-assign ke dalam -1 (untuk sentimen negatif), 1 (untuk sentimen positif) dan 0 (untuk netral). Nantinya, nilai review yang didapat untuk tiap kios/outlet yang sama akan dirata-ratakan, sehingga nantinya nilai akhir untuk tiap kios/outlet tersebut dapat kita gunakan sebagai fitur pada model. Pada akhirnya, akurasi prediksi dari model pun bisa lebih baik.
+
+5. Memperluas kombinasi parameter untuk tuning pada model LGBM, karena model ini sangat sensitif terhadap overfitting yang artinya pemilihan parameter nya harus tepat, dengan harapan bisa membuat model menjadi lebih baik lagi.
