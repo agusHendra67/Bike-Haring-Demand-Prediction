@@ -90,7 +90,7 @@ Result
 
 ![result image](https://github.com/agusHendra67/Bike-Sharing-Demand-Prediction/assets/61777139/e17ab131-0953-41ba-a2af-18d87bc04467)
 
-### Conclusion 
+### **Conclusion**
 
 Dari hasil pemodelan di atas, ada beberapa kesimpulan yang bisa kita ambil :
 
@@ -100,7 +100,7 @@ Dari hasil pemodelan di atas, ada beberapa kesimpulan yang bisa kita ambil :
 
 3. Dari error analysis yang dilakukan, terdapa kondisi pada beberapa fitur yang membuat model ini memiliki nilai prediksi dengan error yang tinggi. Seperti contoh model cenderung memprediksi nilai jumlah pengguna jauh lebih rendah (underestimated) dari nilai aktualnya saat nilai humidity nya berada pada range 0.82-0.83. Dari segi fitu 'hr', model ini cenderung memprediksi nilai jumlah pengguna jauh lebih tinggi (overestimated) dari nilai aktualnya saat nilai hour (hr) berada pada nilai 15 dan 18. Dan juga model cenderung menghasilkan overestimated value dan underestimated value yang tinggi di nilai season 1 (winter) dan nilai weathersit 2 (Mist + Cloudy, Mist + Broken clouds)
 
-### Recoomendation
+### **Recommendations**
 
 Lalu, hal-hal yang dapat dilakukan untuk mengembangkan model agar lebih baik lagi, seperti:
 
