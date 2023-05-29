@@ -54,3 +54,33 @@ Selain itu disini saya juga akan menggunakan RMSLE (Root Mean Squared Log Error)
 | casual | Integer| count of casual users |
 | registered | Integer | count of registered users |
 | cnt | Integer | count of total rental bikes including both casual and registered |
+
+### Data Preprocessing and Modeling
+
+📑 **Steps involved**
+
+Data Preprocessing : Mengecek nilai kosong (missing value), drop data duplikat, ubah format
+
+Feature Extraction/creation : Membuat fitur baru seperti day, month, year, week_of_year, quarter dari Date column .
+
+Feature encoding : Encoding data kategori
+
+Feature Scaling : , scaling menggunakan Standard scaler untuk data numerik
+
+Implementasi beberapa Model Regresi
+
+Hyperparameter tuning
+
+Comparison of models
+-----------------------------------------------------
+### Algorithm used
+
+1. Linear Regression
+2. KNN Regressor
+3. SGD Regressor
+4. SVR
+5. Lasso
+6. DecisionTree Regressor
+7. RandomForest Regressor
+8. XGBoost regressor
+9. LightGBM (LGBM) regressor
