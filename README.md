@@ -34,6 +34,8 @@ Selain itu disini saya juga akan menggunakan RMSLE (Root Mean Squared Log Error)
 
 ### **Data Understanding**
 
+**Dataset Information**
+
 - Dataset merupakan data penyewaan sepeda dari Capital Bikeshare pada tahun 2011 dan 2012.
 - Setiap baris data merepresentasikan informasi terkait waktu dan lainnya.
 
