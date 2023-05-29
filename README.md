@@ -29,3 +29,26 @@ Selanjutnya, kita akan membangun suatu model regresi yang akan membantu perusaha
 Evaluasi metrik yang akan digunakan adalah RMSE, MAE, dan sMAPE, di mana RMSE adalah nilai rataan akar kuadrat dari error, MAE adalah rataan nilai absolut dari error, sedangkan sMAPE adalah rataan persentase error yang dihasilkan oleh model regresi (catatan : disini digunakan sMAPE bukan MAPE dikarenakan adanya nilai 0 pada data jumlah pengguna). Semakin kecil nilai RMSE, MAE, dan sMAPE yang dihasilkan, berarti model semakin akurat dalam memprediksi jumlah sepeda/ jumlah pengguna sesuai dengan limitasi fitur yang digunakan. 
 
 Selain itu disini saya juga akan menggunakan RMSLE (Root Mean Squared Log Error) yang dimana metric ini hanya mempertimbangkan kesalahan relatif antara antara nilai prediksi dan nilai aktual. RMSLE juga memiliki sifat menimbulkan penalti/error yang lebih besar untuk estimasi yang terlalu rendah (underestimated) dari variabel aktual daripada estimasi yang lebih tinggi (overestimated). Sedangkan sMAPE bisa digunakan untuk mengecek seberapa jauh sebuah model dapat menghandel nilai overestimated prediction, karena sMPAE sensitif dengan nilai prediksi yang lebih tinggi dari aktual, sedangkan RMSLE kebalikannya.
+
+****
+
+### **Data Understanding**
+
+- Dataset merupakan data penyewaan sepeda dari Capital Bikeshare pada tahun 2011 dan 2012.
+- Setiap baris data merepresentasikan informasi terkait waktu dan lainnya.
+
+**Attributes Information**
+
+| **Attribute** | **Data Type** | **Description** |
+| --- | --- | --- |
+| dteday | Object | Date |
+| hum | Float | normalized humidity.The values are divided into 100 (max)  |
+| weathersit | Integer | weather. -	1: Clear, Few clouds, Partly cloudy, Partly cloudy, 2: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist, 3: Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds, 4: Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog |
+| holiday | Integer | holiday or not |
+| season | Integer | season (1: winter, 2: spring, 3: summer, 4: fall) |
+| atemp | Float | Normalized feeling temperature in Celsius. The values are derived via (t-tmin)/(tmax-tmin), tmin=-16, t_max=+50 (only in hourly scale) |
+| temp | Float | normalized temperature in Celsius. The values are derived via (t-tmin)/(tmax-tmin), tmin=-8, t_max=+39 (only in hourly scale) |
+| hr | Integer | Hours of day (0 to 23) |
+| casual | Integer| count of casual users |
+| registered | Integer | count of registered users |
+| cnt | Integer | count of total rental bikes including both casual and registered |
