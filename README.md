@@ -1,1 +1,1 @@
-# Bike-Haring-Demand-Prediction
+# Bike-Sharing-Demand-Prediction
