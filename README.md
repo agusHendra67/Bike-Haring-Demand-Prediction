@@ -87,6 +87,8 @@ Comparison of models
 
 Result
 -----------------------------------------------------
+Metric score : 
+![image](https://github.com/agusHendra67/Bike-Sharing-Demand-Prediction/assets/61777139/0ec73890-116f-4258-b1d0-aa53b07dc032)
 
 ![result image](https://github.com/agusHendra67/Bike-Sharing-Demand-Prediction/assets/61777139/e17ab131-0953-41ba-a2af-18d87bc04467)
 
